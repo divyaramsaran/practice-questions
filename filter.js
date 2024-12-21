@@ -18,7 +18,12 @@ const fruitsCollection = ["apple", "banana", "kiwi", "grape"];
 console.log(fruitsCollection.filter(filterLongWords));
 
 // people older than 30 [{name: "Alice", age: 25}, {name: "Bob", age: 35}] => [{name: "Bob", age: 35}]
-const filterAdults = function (people) { };
+const filterAdults = function (people) {
+  return people.age > 30;
+};
+
+const details = [{ name: "Alice", age: 25 }, { name: "Bob", age: 35 }];
+console.log(details.filter(filterAdults));
 
 // active users [{username: "alice", active: true}, {username: "bob", active: false}] => [{username: "alice", active: true}]
 const filterActiveUsers = function (users) { };
