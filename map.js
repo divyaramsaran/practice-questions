@@ -7,7 +7,12 @@ const numberCollection = [1, 2, 3];
 console.log(numberCollection.map(squaresOf));
 
 // lengths of ["apple", "banana", "kiwi"] => [5, 6, 4]
-const lengthsOf = function (strings) { };
+const lengthsOf = function (string) {
+  return string.length;
+};
+
+const stringCollection = ["apple", "banana", "kiwi"];
+console.log(stringCollection.map(lengthsOf));
 
 // uppercase of ["hello", "world"] => ["HELLO", "WORLD"]
 const uppercaseOf = function (strings) { };
