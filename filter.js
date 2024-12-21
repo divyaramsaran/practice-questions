@@ -1,5 +1,13 @@
-// even numbers [1, 2, 3, 4, 5] => [2, 4]
-const filterEvenNumbers = function (numbers) { };
+const isEven = function (number) {
+  return (number | 1) === number + 1;
+}
+
+const filterEvenNumbers = function (number) {
+  return isEven(number)
+};
+
+const numberCollection = [1, 2, 3, 4, 5];
+console.log(numberCollection.filter(filterEvenNumbers));
 
 // words with more than 5 letters ["apple", "banana", "kiwi", "grape"] => ["banana"]
 const filterLongWords = function (words) { };
