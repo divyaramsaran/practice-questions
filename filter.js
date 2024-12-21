@@ -10,7 +10,12 @@ const numberCollection = [1, 2, 3, 4, 5];
 console.log(numberCollection.filter(filterEvenNumbers));
 
 // words with more than 5 letters ["apple", "banana", "kiwi", "grape"] => ["banana"]
-const filterLongWords = function (words) { };
+const filterLongWords = function (words) {
+  return words.at(5);
+};
+
+const fruitsCollection = ["apple", "banana", "kiwi", "grape"];
+console.log(fruitsCollection.filter(filterLongWords));
 
 // people older than 30 [{name: "Alice", age: 25}, {name: "Bob", age: 35}] => [{name: "Bob", age: 35}]
 const filterAdults = function (people) { };
