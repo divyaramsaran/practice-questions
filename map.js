@@ -62,12 +62,22 @@ const negatedBooleansOf = function (boolean) {
 console.log([true, false, true].map(negatedBooleansOf));
 //------------------------------------------------------------------------------
 
-// character codes of ["a", "b", "c"] => [97, 98, 99]
-// Use the `charCodeAt` method on each string
-const charCodesOf = function (strings) { };
+const charCodesOf = function (string) { 
+  return string.charCodeAt();
+};
+
+console.log(["a", "b", "c"].map(charCodesOf));
+//------------------------------------------------------------------------------
 
 // extract domain names from ["user1@gmail.com", "admin@yahoo.com"] => ["gmail.com", "yahoo.com"]
-const domainNamesOf = function (emails) { };
+const domainNamesOf = function (email) { 
+  return email.slice(-9);
+};
+
+const emails = ["user1@gmail.com", "admin@yahoo.com"];
+
+console.log(emails.map(domainNamesOf));
+//------------------------------------------------------------------------------
 
 // split words in ["hello world", "goodbye moon"] => [["hello", "world"], ["goodbye", "moon"]]
 const splitWordsOf = function (strings) { };
