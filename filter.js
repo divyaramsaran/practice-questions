@@ -14,8 +14,8 @@ const numberCollection = [1, 2, 3, 4, 5];
 console.log(numberCollection.filter(filterEvenNumbers));
 //------------------------------------------------------------------------------
 
-const filterLongWords = function (words) {
-  return words.at(5);
+const filterLongWords = function (word) {
+  return word.at(5);
 };
 
 const fruitsCollection = ["apple", "banana", "kiwi", "grape"];
@@ -30,8 +30,8 @@ const details = [{ name: "Alice", age: 25 }, { name: "Bob", age: 35 }];
 console.log(details.filter(filterAdults));
 //------------------------------------------------------------------------------
 
-const filterActiveUsers = function (users) {
-  return users.active;
+const filterActiveUsers = function (user) {
+  return user.active;
 };
 
 const usersStatus = [{ username: "alice", active: true }, {
@@ -41,31 +41,36 @@ const usersStatus = [{ username: "alice", active: true }, {
 console.log(usersStatus.filter(filterActiveUsers))
 //------------------------------------------------------------------------------
 
-const filterNumbersGreaterThanTen = function (numbers) {
-  return isGreaterThanThresHold(numbers, 10);
+const filterNumbersGreaterThanTen = function (number) {
+  return isGreaterThanThresHold(number, 10);
 };
 
 console.log([5, 12, 7, 18, 3].filter(filterNumbersGreaterThanTen))
 //------------------------------------------------------------------------------
 
-const filterLongBooks = function (books) {
-  return isGreaterThanThresHold(books.pages, 200);
+const filterLongBooks = function (book) {
+  return isGreaterThanThresHold(book.pages, 200);
 };
 
 const bookDetails = [{ title: "Book 1", pages: 150 }, { title: "Book 2", pages: 250 }];
 console.log(bookDetails.filter(filterLongBooks));
 //------------------------------------------------------------------------------
 
-const filterIncompleteProfiles = function (users) {
-  return !users.profileComplete;
+const filterIncompleteProfiles = function (user) {
+  return !user.profileComplete;
 };
 
 const usersProfiles = [{ username: "alice", profileComplete: true }, { username: "bob", profileComplete: false }];
 console.log(usersProfiles.filter(filterIncompleteProfiles));
 //------------------------------------------------------------------------------
 
-// students with grades above 80 [{name: "John", grade: 75}, {name: "Jane", grade: 85}] => [{name: "Jane", grade: 85}]
-const filterHighGrades = function (students) { };
+const filterHighGrades = function (student) {
+  return isGreaterThanThresHold(student.grade, 80);
+};
+
+const studentReport = [{name: "John", grade: 75}, {name: "Jane", grade: 85}];
+console.log(studentReport.filter(filterHighGrades));
+//------------------------------------------------------------------------------
 
 // products that are in stock [{product: "apple", inStock: true}, {product: "banana", inStock: false}] => [{product: "apple", inStock: true}]
 const filterInStockProducts = function (products) { };
