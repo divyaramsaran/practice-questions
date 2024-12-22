@@ -26,7 +26,16 @@ const details = [{ name: "Alice", age: 25 }, { name: "Bob", age: 35 }];
 console.log(details.filter(filterAdults));
 
 // active users [{username: "alice", active: true}, {username: "bob", active: false}] => [{username: "alice", active: true}]
-const filterActiveUsers = function (users) { };
+
+const filterActiveUsers = function (users) {
+  return users.active;
+};
+
+const usersStatus = [{ username: "alice", active: true }, {
+  username: "bob", active: false
+}];
+
+console.log(usersStatus.filter(filterActiveUsers))
 
 // numbers greater than 10 [5, 12, 7, 18, 3] => [12, 18]
 const filterNumbersGreaterThanTen = function (numbers) { };
