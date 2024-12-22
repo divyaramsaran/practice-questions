@@ -1,3 +1,7 @@
+const isGreaterThanThresHold = function (number, threshold) {
+  return number > threshold;
+}
+
 const isEven = function (number) {
   return (number | 1) === number + 1;
 }
@@ -19,7 +23,7 @@ console.log(fruitsCollection.filter(filterLongWords));
 //------------------------------------------------------------------------------
 
 const filterAdults = function (people) {
-  return people.age > 30;
+  return isGreaterThanThresHold(people.age, 30);
 };
 
 const details = [{ name: "Alice", age: 25 }, { name: "Bob", age: 35 }];
@@ -38,14 +42,19 @@ console.log(usersStatus.filter(filterActiveUsers))
 //------------------------------------------------------------------------------
 
 const filterNumbersGreaterThanTen = function (numbers) {
-  return numbers > 10;
+  return isGreaterThanThresHold(numbers, 10);
 };
 
 console.log([5, 12, 7, 18, 3].filter(filterNumbersGreaterThanTen))
 //------------------------------------------------------------------------------
 
-// books with more than 200 pages [{title: "Book 1", pages: 150}, {title: "Book 2", pages: 250}] => [{title: "Book 2", pages: 250}]
-const filterLongBooks = function (books) { };
+const filterLongBooks = function (books) {
+  return isGreaterThanThresHold(books.pages, 200);
+};
+
+const bookDetails = [{ title: "Book 1", pages: 150 }, { title: "Book 2", pages: 250 }];
+console.log(bookDetails.filter(filterLongBooks));
+//------------------------------------------------------------------------------
 
 // users with incomplete profiles [{username: "alice", profileComplete: true}, {username: "bob", profileComplete: false}] => [{username: "bob", profileComplete: false}]
 const filterIncompleteProfiles = function (users) { };
