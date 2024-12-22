@@ -2,82 +2,96 @@ const isGreaterThanThresHold = function (number, threshold) {
   return number > threshold;
 }
 
-const isEven = function (number) {
-  return (number | 1) === number + 1;
-}
-
-const filterEvenNumbers = function (number) {
-  return isEven(number)
+const filterEvenNumbers = function (numbers) {
+  return numbers.filter(function (number) {
+    return (number | 1) === number + 1;
+  });
 };
 
 const numberCollection = [1, 2, 3, 4, 5];
-console.log(numberCollection.filter(filterEvenNumbers));
+console.log(filterEvenNumbers(numberCollection));
 //------------------------------------------------------------------------------
 
-const filterLongWords = function (word) {
-  return isGreaterThanThresHold(word.length, 5);
+const filterLongWords = function (words) {
+  return words.filter(function(word) {
+    return isGreaterThanThresHold(word.length, 5);
+  });
 };
 
 const fruitsCollection = ["apple", "banana", "kiwi", "grape"];
-console.log(fruitsCollection.filter(filterLongWords));
+console.log(filterLongWords(fruitsCollection));
 //------------------------------------------------------------------------------
 
-const filterAdults = function (people) {
-  return isGreaterThanThresHold(people.age, 30);
+const filterAdults = function (persons) {
+  return persons.filter(function(people) {
+    return isGreaterThanThresHold(people.age, 30);
+  });
 };
 
 const details = [{ name: "Alice", age: 25 }, { name: "Bob", age: 35 }];
-console.log(details.filter(filterAdults));
+console.log(filterAdults(details));
 //------------------------------------------------------------------------------
 
-const filterActiveUsers = function (user) {
-  return user.active;
+const filterActiveUsers = function (users) {
+  return users.filter(function(user) {
+    return user.active;
+  })
 };
 
 const usersStatus = [{ username: "alice", active: true }, {
   username: "bob", active: false
 }];
 
-console.log(usersStatus.filter(filterActiveUsers))
+console.log(filterActiveUsers(usersStatus));
 //------------------------------------------------------------------------------
 
-const filterNumbersGreaterThanTen = function (number) {
-  return isGreaterThanThresHold(number, 10);
+const filterNumbersGreaterThanTen = function (numbers) {
+  return numbers.filter(function(number) {
+    return isGreaterThanThresHold(number, 10);
+  })
 };
 
-console.log([5, 12, 7, 18, 3].filter(filterNumbersGreaterThanTen))
+console.log(filterNumbersGreaterThanTen([5, 12, 7, 18, 3]));
 //------------------------------------------------------------------------------
 
-const filterLongBooks = function (book) {
-  return isGreaterThanThresHold(book.pages, 200);
+const filterLongBooks = function (books) {
+  return books.filter(function(book) {
+    return isGreaterThanThresHold(book.pages, 200);
+  });
 };
 
 const bookDetails = [{ title: "Book 1", pages: 150 }, { title: "Book 2", pages: 250 }];
-console.log(bookDetails.filter(filterLongBooks));
+console.log(filterLongBooks(bookDetails));
 //------------------------------------------------------------------------------
 
-const filterIncompleteProfiles = function (user) {
-  return !user.profileComplete;
+const filterIncompleteProfiles = function (users) {
+  return users.filter(function(user) {
+    return !user.profileComplete;
+  });
 };
 
 const usersProfiles = [{ username: "alice", profileComplete: true }, { username: "bob", profileComplete: false }];
-console.log(usersProfiles.filter(filterIncompleteProfiles));
+console.log(filterIncompleteProfiles(usersProfiles));
 //------------------------------------------------------------------------------
 
-const filterHighGrades = function (student) {
-  return isGreaterThanThresHold(student.grade, 80);
+const filterHighGrades = function (students) {
+  return students.filter(function(student) {
+    return isGreaterThanThresHold(student.grade, 80);
+  })
 };
 
 const studentReport = [{ name: "John", grade: 75 }, { name: "Jane", grade: 85 }];
-console.log(studentReport.filter(filterHighGrades));
+console.log(filterHighGrades(studentReport));
 //------------------------------------------------------------------------------
 
-const filterInStockProducts = function (product) {
-  return product.inStock;
+const filterInStockProducts = function (products) {
+  return products.filter(function(product) {
+    return product.inStock;
+  });
 };
 
 const productDetails = [{ product: "apple", inStock: true }, { product: "banana", inStock: false }];
-console.log(productDetails.filter(filterInStockProducts));
+console.log(filterInStockProducts(productDetails));
 //------------------------------------------------------------------------------
 
 // orders placed in the last 30 days [{orderDate: "2024-11-01"}, {orderDate: "2024-12-01"}] => [{orderDate: "2024-12-01"}]
