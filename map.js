@@ -28,15 +28,19 @@ const firstCharactersOf = function (string) {
 console.log(["apple", "banana", "kiwi"].map(firstCharactersOf));
 //------------------------------------------------------------------------------
 
-const truthValuesOf = function (number) { 
+const truthValuesOf = function (number) {
   return number !== 0;
 };
 
 console.log([0, 1, 2, 3].map(truthValuesOf));
 //------------------------------------------------------------------------------
 
-// reverse strings of ["hello", "world"] => ["olleh", "dlrow"]
-const reversedStringsOf = function (strings) { };
+const reversedStringsOf = function (string) {
+  return string.split('').reverse().join('');
+};
+
+console.log(["hello", "world"].map(reversedStringsOf));
+//------------------------------------------------------------------------------
 
 // double letters of ["cat", "dog", "bat"] => ["ccaat", "ddoog", "bbaatt"]
 const doubleLettersOf = function (strings) { };
