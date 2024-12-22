@@ -68,12 +68,17 @@ const filterHighGrades = function (student) {
   return isGreaterThanThresHold(student.grade, 80);
 };
 
-const studentReport = [{name: "John", grade: 75}, {name: "Jane", grade: 85}];
+const studentReport = [{ name: "John", grade: 75 }, { name: "Jane", grade: 85 }];
 console.log(studentReport.filter(filterHighGrades));
 //------------------------------------------------------------------------------
 
-// products that are in stock [{product: "apple", inStock: true}, {product: "banana", inStock: false}] => [{product: "apple", inStock: true}]
-const filterInStockProducts = function (products) { };
+const filterInStockProducts = function (product) {
+  return product.inStock;
+};
+
+const productDetails = [{ product: "apple", inStock: true }, { product: "banana", inStock: false }];
+console.log(productDetails.filter(filterInStockProducts));
+//------------------------------------------------------------------------------
 
 // orders placed in the last 30 days [{orderDate: "2024-11-01"}, {orderDate: "2024-12-01"}] => [{orderDate: "2024-12-01"}]
 const filterRecentOrders = function (orders) { };
