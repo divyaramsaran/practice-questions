@@ -28,9 +28,12 @@ const firstCharactersOf = function (string) {
 console.log(["apple", "banana", "kiwi"].map(firstCharactersOf));
 //------------------------------------------------------------------------------
 
-// truth values of [0, 1, 2, 3] => [false, true, true, true]
-// Assume non-zero numbers are true, and zero is false
-const truthValuesOf = function (numbers) { };
+const truthValuesOf = function (number) { 
+  return number !== 0;
+};
+
+console.log([0, 1, 2, 3].map(truthValuesOf));
+//------------------------------------------------------------------------------
 
 // reverse strings of ["hello", "world"] => ["olleh", "dlrow"]
 const reversedStringsOf = function (strings) { };
