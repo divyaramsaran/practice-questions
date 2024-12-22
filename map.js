@@ -69,7 +69,6 @@ const charCodesOf = function (string) {
 console.log(["a", "b", "c"].map(charCodesOf));
 //------------------------------------------------------------------------------
 
-// extract domain names from ["user1@gmail.com", "admin@yahoo.com"] => ["gmail.com", "yahoo.com"]
 const domainNamesOf = function (email) {
   return email.slice(-9);
 };
@@ -101,33 +100,34 @@ const repeatedStringsOf = function (string) {
 console.log(["hi", "bye"].map(repeatedStringsOf));
 //------------------------------------------------------------------------------
 
-const countVowels = function () {
-  const vowels = ["a", "e", "i", "o", "u"];
-
-  return function (count, letter) {
+const countVowels = function (count, letter) {
+  const vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"];
     
     if (vowels.includes(letter)) {
       count++;
     }
 
     return count;
-  }
 }
 
 const countVowelsOf = function (string) {
-  const getCount = countVowels();
-
-  return string.split("").reduce(getCount, 0);
+  return string.split("").reduce(countVowels, 0);
 };
 
 console.log(["apple", "banana", "grape"].map(countVowelsOf));
 //------------------------------------------------------------------------------
 
-// reverse arrays of [[1, 2, 3], [4, 5, 6]] => [[3, 2, 1], [6, 5, 4]]
-const reversedArraysOf = function (arrays) { };
+const reversedArraysOf = function (array) { 
+  return array.reverse();
+};
+
+console.log([[1, 2, 3], [4, 5, 6]].map(reversedArraysOf));
+//------------------------------------------------------------------------------
 
 // remove vowels from ["apple", "banana", "grape"] => ["ppl", "bnn", "grp"]
-const withoutVowelsOf = function (strings) { };
+const withoutVowelsOf = function (strings) { 
+  
+};
 
 // cumulative sums of [[1, 2, 3], [4, 5, 6]] => [[1, 3, 6], [4, 9, 15]]
 // Example: cumulative sum of [1, 2, 3] is [1, 1+2, 1+2+3]
