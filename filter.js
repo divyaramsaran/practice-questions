@@ -15,7 +15,7 @@ console.log(numberCollection.filter(filterEvenNumbers));
 //------------------------------------------------------------------------------
 
 const filterLongWords = function (word) {
-  return word.at(5);
+  return isGreaterThanThresHold(word.length, 5);
 };
 
 const fruitsCollection = ["apple", "banana", "kiwi", "grape"];

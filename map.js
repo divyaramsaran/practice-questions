@@ -79,11 +79,20 @@ const emails = ["user1@gmail.com", "admin@yahoo.com"];
 console.log(emails.map(domainNamesOf));
 //------------------------------------------------------------------------------
 
-// split words in ["hello world", "goodbye moon"] => [["hello", "world"], ["goodbye", "moon"]]
-const splitWordsOf = function (strings) { };
+const splitWordsOf = function (string) { 
+  return string.split(" ");
+};
+
+console.log(["hello world", "goodbye moon"].map(splitWordsOf));
+//------------------------------------------------------------------------------
 
 // join arrays of [["a", "b"], ["c", "d"]] => ["ab", "cd"]
-const joinedArraysOf = function (arrayOfArrays) { };
+const joinedArraysOf = function (array) { 
+  return array.join('');
+};
+
+console.log([["a", "b"], ["c", "d"]].map(joinedArraysOf));
+//------------------------------------------------------------------------------
 
 // repeat strings in ["hi", "bye"] => ["hihi", "byebye"]
 const repeatedStringsOf = function (strings) { };
