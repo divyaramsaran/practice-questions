@@ -43,7 +43,17 @@ console.log(["hello", "world"].map(reversedStringsOf));
 //------------------------------------------------------------------------------
 
 // double letters of ["cat", "dog", "bat"] => ["ccaat", "ddoog", "bbaatt"]
-const doubleLettersOf = function (strings) { };
+
+const makeDoublet = function (letter) {
+  return letter + letter;
+}
+
+const doubleLettersOf = function (string) {
+  return string.split('').map(makeDoublet).join('');
+};
+
+console.log(["cat", "dog", "bat"].map(doubleLettersOf));
+//------------------------------------------------------------------------------
 
 // boolean negation of [true, false, true] => [false, true, false]
 const negatedBooleansOf = function (booleans) { };
