@@ -1,24 +1,32 @@
-// squares of [1, 2, 3] => [1, 4, 9]
 const squaresOf = function (number) {
   return Math.pow(number, 2);
 };
 
 const numberCollection = [1, 2, 3];
 console.log(numberCollection.map(squaresOf));
+//------------------------------------------------------------------------------
 
-// lengths of ["apple", "banana", "kiwi"] => [5, 6, 4]
 const lengthsOf = function (string) {
   return string.length;
 };
 
 const stringCollection = ["apple", "banana", "kiwi"];
 console.log(stringCollection.map(lengthsOf));
+//------------------------------------------------------------------------------
 
-// uppercase of ["hello", "world"] => ["HELLO", "WORLD"]
-const uppercaseOf = function (strings) { };
+const uppercaseOf = function (string) {
+  return string.toUpperCase();
+};
 
-// first characters of ["apple", "banana", "kiwi"] => ["a", "b", "k"]
-const firstCharactersOf = function (strings) { };
+console.log(["hello", "world"].map(uppercaseOf));
+//------------------------------------------------------------------------------
+
+const firstCharactersOf = function (string) {
+  return string.at(0);
+};
+
+console.log(["apple", "banana", "kiwi"].map(firstCharactersOf));
+//------------------------------------------------------------------------------
 
 // truth values of [0, 1, 2, 3] => [false, true, true, true]
 // Assume non-zero numbers are true, and zero is false
