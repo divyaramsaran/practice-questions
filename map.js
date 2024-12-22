@@ -93,7 +93,7 @@ console.log(charCodesOf(["a", "b", "c"]));
 
 const domainNamesOf = function (emails) {
   return emails.map(function (email) {
-    return email.slice(-9);
+    return email.slice(email.indexOf('@') + 1);
   });
 };
 
@@ -184,7 +184,7 @@ const sum = function (addition, num1) {
 }
 
 const cumulativeSumsOf = function (arrays) {
-  return arrays.map(function(array) {
+  return arrays.map(function (array) {
     return array.reduce(sum, [])
   });
 };
@@ -193,11 +193,40 @@ console.log(cumulativeSumsOf([[1, 2, 3], [4, 5, 6]]));
 //------------------------------------------------------------------------------
 
 // reverse words in ["hello world", "goodbye moon"] => ["olleh dlrow", "eybdoog noom"]
-const reversedWordsOf = function (strings) { };
+const reversedWordsOf = function (strings) {
+  return strings.map(function (string) {
+    const reversedString = string.split(" ").reverse().join(' ');
+
+    return [...reversedString].reverse().join('');
+  });
+};
+
+console.log(reversedWordsOf(["hello world", "goodbye moon"]));
+//------------------------------------------------------------------------------
 
 // extract unique characters from ["apple", "banana", "grape"] => ["apl", "ban", "gra"]
 // Maintain the order of their first appearance in each string
-const uniqueCharactersOf = function (strings) { };
+
+const removeDuplicates = function (isogram, letter) {
+
+  if (!isogram.includes(letter)) {
+    isogram.push(letter);
+
+    return isogram;
+  }
+
+  return isogram;
+}
+
+const uniqueCharactersOf = function (strings) {
+  return strings.map(function (string) {
+
+    return [...string].reduce(removeDuplicates, []).join('');
+  });
+};
+
+console.log(uniqueCharactersOf(["apple", "banana", "grape"]));
+//------------------------------------------------------------------------------
 
 // generate ranges from [3, 5, 2] => [[0, 1, 2], [0, 1, 2, 3, 4], [0, 1]]
 const rangesOf = function (numbers) { };
