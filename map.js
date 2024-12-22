@@ -1,3 +1,7 @@
+const getLength = function (word) {
+  return word.length;
+}
+
 const squaresOf = function (numbers) {
   return numbers.map(
     function (number) {
@@ -12,7 +16,7 @@ console.log(squaresOf([1, 2, 3]));
 
 const lengthsOf = function (strings) {
   return strings.map(function (string) {
-    return string.length;
+    return getLength(string);
   });
 };
 
@@ -178,7 +182,7 @@ console.log(withoutVowelsOf(["apple", "banana", "grape"]));
 // Example: cumulative sum of [1, 2, 3] is [1, 1+2, 1+2+3]
 
 const sum = function (addition, num1) {
-  addition.push(((addition[addition.length - 1] || 0) + num1));
+  addition.push(((addition[getLength(addition) - 1] || 0) + num1));
 
   return addition;
 }
@@ -229,37 +233,165 @@ console.log(uniqueCharactersOf(["apple", "banana", "grape"]));
 //------------------------------------------------------------------------------
 
 // generate ranges from [3, 5, 2] => [[0, 1, 2], [0, 1, 2, 3, 4], [0, 1]]
-const rangesOf = function (numbers) { };
+
+const rangesOf = function (numbers) {
+  return numbers.map(function (value) {
+    const range = [];
+
+    for (let number = 0; number < value; number++) {
+      range.push(number);
+    }
+
+    return range;
+  });
+};
+
+console.log(rangesOf([3, 5, 2]));
+//------------------------------------------------------------------------------
 
 // capitalize first letters of ["hello world", "goodbye moon"] => ["Hello World", "Goodbye Moon"]
-const capitalizedFirstLettersOf = function (strings) { };
+
+const firstLetterToUpper = function (string) {
+  const [firstLetter, ...characters] = [...string];
+  characters.unshift(firstLetter.toUpperCase());
+
+  return characters.join('');
+}
+
+const capitalizedFirstLettersOf = function (strings) {
+  return strings.map(function (string) {
+
+    return string.split(' ').map(firstLetterToUpper).join(' ');
+  });
+};
+
+console.log(capitalizedFirstLettersOf(["hello world", "goodbye moon"]));
+//------------------------------------------------------------------------------
 
 // find word lengths in ["apple pie", "banana split"] => [[5, 3], [6, 5]]
-const wordLengthsOf = function (strings) { };
+
+const wordLengthsOf = function (strings) {
+  return strings.map(function (string) {
+
+    return string.split(' ').map(getLength);
+  });
+};
+
+console.log(wordLengthsOf(["apple pie", "banana split"]));
+//------------------------------------------------------------------------------
 
 // flatten nested arrays of [[1, [2, 3]], [4, [5, 6]]] => [[1, 2, 3], [4, 5, 6]]
-const flattenedArraysOf = function (arrays) { };
+const flattenedArraysOf = function (arrays) {
+  return arrays.map(function (array) {
+    return array.flat();
+  });
+};
+
+console.log(flattenedArraysOf([[1, [2, 3]], [4, [5, 6]]]));
+//------------------------------------------------------------------------------
 
 // sort letters in ["cat", "bat", "rat"] alphabetically => ["act", "abt", "art"]
-const sortedLettersOf = function (strings) { };
+
+const sortString = function (str1, str2) {
+  const str1Code = str1.charCodeAt(0);
+  const str2Code = str2.charCodeAt(0);
+
+  if (str1Code > str2Code) {
+    return 1;
+  }
+
+  return -1;
+}
+
+const sortedLettersOf = function (strings) {
+  return strings.map(function (string) {
+    return [...string].sort(sortString).join('');
+  });
+};
+
+console.log(sortedLettersOf(["cat", "bat", "rat"]));
+//------------------------------------------------------------------------------
 
 // wrap strings in brackets ["apple", "banana"] => ["[apple]", "[banana]"]
-const wrappedStringsOf = function (strings) { };
+const wrappedStringsOf = function (strings) {
+  return strings.map(function (string) {
+    const [...spreadedString] = [...string];
+
+    spreadedString.unshift("[");
+    spreadedString.push("]");
+
+    return spreadedString.join('');
+  })
+};
+
+console.log(wrappedStringsOf(["apple", "banana"]))
+//------------------------------------------------------------------------------
+
 
 // extract names from [{ name: "Alice" }, { name: "Bob" }] => ["Alice", "Bob"]
-const extractNames = function (objects) { };
+
+const getName = function(object) {
+  return object.name;
+}
+
+const extractNames = function (objects) {
+  return objects.map(getName);
+};
+
+console.log(extractNames([{ name: "Alice" }, { name: "Bob" }]));
+//------------------------------------------------------------------------------
 
 // extract ages from [{ age: 25 }, { age: 30 }] => [25, 30]
-const extractAges = function (objects) { };
+
+const getAge = function(object) {
+  return object.age;
+}
+
+const extractAges = function (objects) {
+  return objects.map(getAge);
+};
+
+console.log(extractAges([{ age: 25 }, { age: 30 }]));
+//------------------------------------------------------------------------------
 
 // extract the first letters of names from [{ name: "Alice" }, { name: "Bob" }] => ["A", "B"]
-const firstLettersOfNames = function (objects) { };
+
+const getNamesFirstLetter = function(object) {
+  return (object.name).at(0);
+}
+
+const firstLettersOfNames = function (objects) {
+  return objects.map(getNamesFirstLetter);
+};
+
+console.log(firstLettersOfNames([{ name: "Alice" }, { name: "Bob" }]));
+//------------------------------------------------------------------------------
 
 // calculate areas from [{ width: 2, height: 3 }, { width: 4, height: 5 }] => [6, 20]
-const calculateAreas = function (rectangles) { };
+
+const calcArea = function(dimensions) {
+  return dimensions.height * dimensions.width;
+}
+
+const calculateAreas = function (rectangles) {
+  return rectangles.map(calcArea);
+};
+
+console.log(calculateAreas([{ width: 2, height: 3 }, { width: 4, height: 5 }]));
+//------------------------------------------------------------------------------
 
 // extract boolean flags from [{ active: true }, { active: false }] => [true, false]
-const extractFlags = function (objects) { };
+
+const getStatus = function(object) {
+  return object.active;
+}
+
+const extractFlags = function (objects) {
+  return objects.map(getStatus);
+};
+
+console.log(extractFlags([{ active: true }, { active: false }]));
+//------------------------------------------------------------------------------
 
 // concatenate first and last names from [{ firstName: "Alice", lastName: "Smith" }, { firstName: "Bob", lastName: "Brown" }] => ["Alice Smith", "Bob Brown"]
 const fullNames = function (objects) { };
