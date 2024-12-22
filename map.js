@@ -55,8 +55,12 @@ const doubleLettersOf = function (string) {
 console.log(["cat", "dog", "bat"].map(doubleLettersOf));
 //------------------------------------------------------------------------------
 
-// boolean negation of [true, false, true] => [false, true, false]
-const negatedBooleansOf = function (booleans) { };
+const negatedBooleansOf = function (boolean) {
+  return !boolean;
+};
+
+console.log([true, false, true].map(negatedBooleansOf));
+//------------------------------------------------------------------------------
 
 // character codes of ["a", "b", "c"] => [97, 98, 99]
 // Use the `charCodeAt` method on each string
