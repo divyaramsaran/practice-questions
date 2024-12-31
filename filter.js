@@ -355,17 +355,36 @@ const filterUsersByFollowingAndRecentPosts = function (
   daysAgo
 ) {};
 
+//==============================================================================
+
 // Filter posts from users who have more than a certain number of followers and at least one post with over a set number of comments [{post: {user: {name: "Chris", followers: 1200}, comments: 350}}] => [{post: {user: {name: "Chris", followers: 1200}, comments: 350}}]
 const filterPostsByUserFollowersAndComments = function (
   posts,
   minFollowers,
   minComments
-) {};
+) {
+  console.log(
+    "posts",
+    posts,
+    "followers",
+    minFollowers,
+    "comments ",
+    minComments
+  );
+};
 
-const temp = [
-  { post: { user: { name: "Chris", followers: 1200 }, comments: 350 } },
-];
+const person = {
+  post: { user: { name: "Chris", followers: 1200 }, comments: 350 },
+};
 
+const filterByFollowersAndPosts = function (person) {
+  return filterPostsByUserFollowersAndComments(
+    person.post,
+    person.post.user["followers"],
+    person.post.comments
+  );
+};
+console.log(filterByFollowersAndPosts(person));
 //==============================================================================
 
 // Filter users who have shared a post that has a specific hashtag and has been liked more than a set number [{user: {name: "Mia", posts: [{title: "Post 1", hashtags: ["#beach", "#sunset"], likes: 300}]}}] => [{user: {name: "Mia", posts: [{title: "Post 1", hashtags: ["#beach", "#sunset"], likes: 300}]}}]
